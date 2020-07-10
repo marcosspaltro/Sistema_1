@@ -1,0 +1,40 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Sistema_1
+</name>
+</assembly>
+<members>
+<member name="T:Sistema_1.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Sistema_1.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Sistema_1.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:Sistema_1.Herramientas.Codigo_Seleccionado(System.String)">
+ <summary>
+ Devuelve el Valor en una cadena con formato #. Texto
+ </summary>
+ <param name="s">Cadena a evaluar</param>
+ <returns>Integer</returns>
+</member>
+<member name="M:Sistema_1.Herramientas.Nombre_Seleccionado(System.String)">
+ <summary>
+ Devuelve el Nombre en una cadena con formato #. Texto
+ </summary>
+ <param name="s">Cadena a evaluar</param>
+ <returns>String</returns>
+</member>
+</members>
+</doc>
