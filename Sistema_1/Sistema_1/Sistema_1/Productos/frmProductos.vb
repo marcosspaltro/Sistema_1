@@ -1,9 +1,9 @@
 ﻿Imports System.IO
 
 Public Class frmProductos
+    Dim prod As New clsProductos
 
     Private Sub frmProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim prod As New clsProductos
 
         Dim dt As DataTable = prod.Datos
 
@@ -18,8 +18,7 @@ Public Class frmProductos
     End Sub
 
     Private Sub cmdAgregar_Click(sender As Object, e As EventArgs) Handles cmdAgregar.Click
-        'NO ME DEJA PONER EL PUNTO EN EL TEXTO
-        lstProductos.Items.Add(". " + txtProd.Text)
+        lstProductos.Items.Add((prod.Max_Id + 1).ToString() + ". " + txtProd.Text)
         txtProd.Text = ""
         nvalista()
     End Sub

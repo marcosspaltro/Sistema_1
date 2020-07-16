@@ -10,8 +10,8 @@ Public Class clsProductos
         dt.Columns.Add("Nombre", GetType(String))
 
         If Not File.Exists(Application.StartupPath + "\Productos.txt") Then
-            Using swProd As StreamWriter = New StreamWriter("Productos.txt")
-            End Using
+            Dim swProd As StreamWriter = New StreamWriter("Productos.txt")
+            swProd.Close()
         End If
 
         Dim srProd As New StreamReader("Productos.txt")
@@ -28,6 +28,26 @@ Public Class clsProductos
 
         Return dt
 
+    End Function
+
+    Public Function Max_Id() As Integer
+        Dim srProd As New StreamReader("Productos.txt")
+        Dim vlinea As String = srProd.ReadLine
+
+        Dim vmax As Integer = 0
+
+        While vlinea IsNot Nothing
+            If vlinea.IndexOf(".") > 0 Then
+                Dim vindice As Integer = Codigo_Seleccionado(vlinea)
+                If vmax < vindice Then
+                    vmax = vindice
+                End If
+            End If
+            vlinea = srProd.ReadLine
+
+        End While
+        srProd.Close()
+        Return vmax
     End Function
 
 #End Region
