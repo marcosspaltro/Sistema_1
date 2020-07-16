@@ -24,3 +24,16 @@ C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\ob
 C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.exe
 C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.xml
 C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.pdb
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.vbprojAssemblyReference.cache
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.frmMain.resources
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.Resources.resources
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.frmProductos.resources
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.vbproj.GenerateResource.cache
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.vbproj.CoreCompileInputs.cache
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.exe
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.xml
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.pdb
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\bin\Debug\Sistema_1.exe.config
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\bin\Debug\Sistema_1.exe
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\bin\Debug\Sistema_1.pdb
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\bin\Debug\Sistema_1.xml
