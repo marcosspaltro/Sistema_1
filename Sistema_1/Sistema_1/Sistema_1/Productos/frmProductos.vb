@@ -33,11 +33,20 @@ Public Class frmProductos
             cmdEditar.Text = "Editar"
             lstProductos.Items.Insert(lstProductos.SelectedIndex, txtProd.Text)
             lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
+            nvalista()
+
         End If
         If Not lstProductos.SelectedIndex = -1 Then
             cmdEditar.Text = "Aceptar"
-            txtProd.Text = lstProductos.SelectedItem
-            nvalista()
+            Dim codid As String
+            Dim codnom As String
+            Dim punt As Integer
+            Dim fin As Integer
+            fin = lstProductos.SelectedItem.ToString().IndexOf("final:,")
+            punt = lstProductos.SelectedItem.ToString.IndexOf(". ") + 2
+            codid = lstProductos.SelectedItem.ToString().Substring(0, punt)
+            codnom = lstProductos.SelectedItem.ToString().Substring(punt, fin)
+            txtProd.Text = codnom
         End If
 
     End Sub

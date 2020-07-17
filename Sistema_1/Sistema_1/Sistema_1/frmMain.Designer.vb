@@ -49,19 +49,19 @@ Partial Class frmMain
         'mnuProductos
         '
         Me.mnuProductos.Name = "mnuProductos"
-        Me.mnuProductos.Size = New System.Drawing.Size(180, 22)
+        Me.mnuProductos.Size = New System.Drawing.Size(139, 22)
         Me.mnuProductos.Text = "Productos"
         '
         'mnuClientes
         '
         Me.mnuClientes.Name = "mnuClientes"
-        Me.mnuClientes.Size = New System.Drawing.Size(180, 22)
+        Me.mnuClientes.Size = New System.Drawing.Size(139, 22)
         Me.mnuClientes.Text = "Clientes"
         '
         'mnuProveedores
         '
         Me.mnuProveedores.Name = "mnuProveedores"
-        Me.mnuProveedores.Size = New System.Drawing.Size(180, 22)
+        Me.mnuProveedores.Size = New System.Drawing.Size(139, 22)
         Me.mnuProveedores.Text = "Proveedores"
         '
         'frmMain
