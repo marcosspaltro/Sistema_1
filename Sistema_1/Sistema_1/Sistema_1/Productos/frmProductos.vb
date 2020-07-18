@@ -31,21 +31,17 @@ Public Class frmProductos
     Private Sub cmdEditar_Click(sender As Object, e As EventArgs) Handles cmdEditar.Click
         If cmdEditar.Text = "Aceptar" Then
             cmdEditar.Text = "Editar"
-            lstProductos.Items.Insert(lstProductos.SelectedIndex, txtProd.Text)
+            Dim codid As String
+            codid = Codigo_Seleccionado(lstProductos.Text)
+            lstProductos.Items.Insert(lstProductos.SelectedIndex, codid + ". " + txtProd.Text)
             lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
             nvalista()
 
         End If
         If Not lstProductos.SelectedIndex = -1 Then
             cmdEditar.Text = "Aceptar"
-            Dim codid As String
             Dim codnom As String
-            Dim punt As Integer
-            Dim fin As Integer
-            fin = lstProductos.SelectedItem.ToString().IndexOf("final:,")
-            punt = lstProductos.SelectedItem.ToString.IndexOf(". ") + 2
-            codid = lstProductos.SelectedItem.ToString().Substring(0, punt)
-            codnom = lstProductos.SelectedItem.ToString().Substring(punt, fin)
+            codnom = Nombre_Seleccionado(lstProductos.Text)
             txtProd.Text = codnom
         End If
 

@@ -64,6 +64,14 @@ Public Class clsProductos
     Public Sub Borrar()
         frmProductos.lstProductos.Items.RemoveAt(frmProductos.lstProductos.SelectedIndex)
     End Sub
+    Public Sub nvalista()
+        Using swProd As TextWriter = New StreamWriter("Productos.txt")
+
+            For Each items In frmProductos.lstProductos.Items
+                swProd.WriteLine(items)
+            Next
+        End Using
+    End Sub
 
 #End Region
 End Class
