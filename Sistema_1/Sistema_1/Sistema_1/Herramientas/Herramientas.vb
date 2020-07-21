@@ -20,7 +20,7 @@
     ''' <param name="s">Cadena a evaluar</param>
     ''' <returns>String</returns>
     Public Function Nombre_Seleccionado(ByVal s As String) As String
-        If s.IndexOf(".") Then
+        If s.IndexOf(".") > -1 Then
             s = s.Substring(s.IndexOf(".") + 2)
         End If
         Return s
