@@ -4,23 +4,28 @@ Public Class frmClientes
 
     Private Sub cmdEditar_Click(sender As Object, e As EventArgs) Handles cmdEditar.Click
         If cmdEditar.Text = "Aceptar" Then
-            lstClientes.Items.Insert(lstClientes.SelectedIndex, txtClientes.Text)
-            lstClientes.Items.RemoveAt(lstClientes.SelectedIndex)
             cmdEditar.Text = "Editar"
+            Dim codid As String
+            codid = Codigo_Seleccionado(lstClientes.Text)
+            lstClientes.Items.Insert(lstClientes.SelectedIndex, codid + ". " + txtClientes.Text)
+            lstClientes.Items.RemoveAt(lstClientes.SelectedIndex)
             nvalista()
+
         End If
         If Not lstClientes.SelectedIndex = -1 Then
             cmdEditar.Text = "Aceptar"
-            txtClientes.Text = lstClientes.SelectedItem
+            Dim codnom As String
+            codnom = Nombre_Seleccionado(lstClientes.Text)
+            txtClientes.Text = codnom
         End If
     End Sub
 
     Private Sub cmdAgregar_Click(sender As Object, e As EventArgs) Handles cmdAgregar.Click
-        If Not txtClientes.Text = "" Then
-            lstClientes.Items.Add(txtClientes.Text)
+        If cmdEditar.Text = "Editar" Then
+            lstClientes.Items.Add((cli.Max_Id + 1).ToString() + ". " + txtClientes.Text)
             txtClientes.Text = ""
+            nvalista()
         End If
-        nvalista()
     End Sub
 
     Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click
@@ -48,7 +53,7 @@ Public Class frmClientes
         Dim dt As DataTable = cli.Datos
 
         For Each dr As DataRow In dt.Rows
-            lstClientes.Items.Add($"{dr.Item(0)}")
+            lstClientes.Items.Add($"{dr.Item(0)}. {dr.Item(1)}")
         Next
     End Sub
 End Class

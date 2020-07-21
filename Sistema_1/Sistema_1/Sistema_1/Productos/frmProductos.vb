@@ -18,9 +18,11 @@ Public Class frmProductos
     End Sub
 
     Private Sub cmdAgregar_Click(sender As Object, e As EventArgs) Handles cmdAgregar.Click
-        lstProductos.Items.Add((prod.Max_Id + 1).ToString() + ". " + txtProd.Text)
-        txtProd.Text = ""
-        nvalista()
+        If cmdEditar.Text = "Editar" Then
+            lstProductos.Items.Add((prod.Max_Id + 1).ToString() + ". " + txtProd.Text)
+            txtProd.Text = ""
+            nvalista()
+        End If
     End Sub
 
     Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click

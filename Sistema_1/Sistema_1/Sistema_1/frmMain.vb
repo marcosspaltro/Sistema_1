@@ -18,4 +18,11 @@
         frmClientes.WindowState = FormWindowState.Minimized
         frmClientes.WindowState = FormWindowState.Maximized
     End Sub
+
+    Private Sub mnuProveedores_Click(sender As Object, e As EventArgs) Handles mnuProveedores.Click
+        frmProveedores.MdiParent = Me
+        frmProveedores.Show()
+        frmProveedores.WindowState = FormWindowState.Minimized
+        frmProveedores.WindowState = FormWindowState.Maximized
+    End Sub
 End Class

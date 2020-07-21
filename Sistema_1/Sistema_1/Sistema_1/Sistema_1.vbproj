@@ -73,7 +73,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientes\clsClientes.vb" />
+    <Compile Include="Clases\clsClientes.vb" />
+    <Compile Include="Clases\clsProveedores.vb" />
     <Compile Include="Clientes\frmClientes.Designer.vb">
       <DependentUpon>frmClientes.vb</DependentUpon>
     </Compile>
@@ -103,11 +104,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Productos\clsProductos.vb" />
+    <Compile Include="Clases\clsProductos.vb" />
     <Compile Include="Productos\frmProductos.Designer.vb">
       <DependentUpon>frmProductos.vb</DependentUpon>
     </Compile>
     <Compile Include="Productos\frmProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\frmProveedores.Designer.vb">
+      <DependentUpon>frmProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\frmProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -140,5 +147,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
