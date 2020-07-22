@@ -6,26 +6,9 @@ Public Class clsProductos
 #Region " Devolver Datos "
     Public Function Datos() As DataTable
         Dim dt As New DataTable()
-        dt.Columns.Add("Id", GetType(Integer))
-        dt.Columns.Add("Nombre", GetType(String))
-
-        If Not File.Exists(Application.StartupPath + "\Productos.txt") Then
-            Dim swProd As StreamWriter = New StreamWriter("Productos.txt")
-            swProd.Close()
-        End If
-
-        Dim srProd As New StreamReader("Productos.txt")
-        Dim vlinea As String = srProd.ReadLine
-
-        While vlinea IsNot Nothing
-
-            dt.Rows.Add(Codigo_Seleccionado(vlinea), Nombre_Seleccionado(vlinea))
-
-            vlinea = srProd.ReadLine
-
-        End While
-        srProd.Close()
-
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Productos", db)
+        dat.Fill(dt)
         Return dt
 
     End Function
@@ -57,20 +40,18 @@ Public Class clsProductos
 
     End Sub
 
-    Public Sub Editar()
-
+    Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"UPDATE Productos SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
-    Public Sub Borrar()
-        frmProductos.lstProductos.Items.RemoveAt(frmProductos.lstProductos.SelectedIndex)
-    End Sub
-    Public Sub nvalista()
-        Using swProd As TextWriter = New StreamWriter("Productos.txt")
-
-            For Each items In frmProductos.lstProductos.Items
-                swProd.WriteLine(items)
-            Next
-        End Using
+    Public Sub Borrar(ByVal Id As Integer)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand("DELETE FROM Productos WHERE ID =" & Id, db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
 #End Region
