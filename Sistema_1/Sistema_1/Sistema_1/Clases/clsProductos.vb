@@ -36,8 +36,11 @@ Public Class clsProductos
 #End Region
 
 #Region " Editar Datos"
-    Public Sub Agregar()
-
+    Public Sub Agregar(ByVal nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Productos (Nombre) VALUES('{nombre_Nuevo}') ", db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
     Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)

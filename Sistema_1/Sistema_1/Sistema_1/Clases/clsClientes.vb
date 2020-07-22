@@ -1,28 +1,12 @@
 ﻿Imports System.IO
 Public Class clsClientes
+
 #Region " Devolver Datos "
     Public Function Datos() As DataTable
         Dim dt As New DataTable()
-        dt.Columns.Add("Id", GetType(Integer))
-        dt.Columns.Add("Nombre", GetType(String))
-
-        If Not File.Exists(Application.StartupPath + "\Clientes.txt") Then
-            Dim swCli As StreamWriter = New StreamWriter("Clientes.txt")
-            swCli.Close()
-        End If
-
-        Dim srCli As New StreamReader("Clientes.txt")
-        Dim vlinea As String = srCli.ReadLine
-
-        While vlinea IsNot Nothing
-
-            dt.Rows.Add(Codigo_Seleccionado(vlinea), Nombre_Seleccionado(vlinea))
-
-            vlinea = srCli.ReadLine
-
-        End While
-        srCli.Close()
-
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Clientes", db)
+        dat.Fill(dt)
         Return dt
 
     End Function
@@ -50,24 +34,25 @@ Public Class clsClientes
 #End Region
 
 #Region " Editar Datos"
-    Public Sub Agregar()
-
+    Public Sub Agregar(ByVal nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Clientes (Nombre) VALUES('{nombre_Nuevo}') ", db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
-    Public Sub Editar()
-
+    Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"UPDATE Clientes SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
-    Public Sub Borrar()
-        frmClientes.lstClientes.Items.RemoveAt(frmClientes.lstClientes.SelectedIndex)
-    End Sub
-    Public Sub nvalista()
-        Using swCli As TextWriter = New StreamWriter("Clientes.txt")
-
-            For Each items In frmClientes.lstClientes.Items
-                swCli.WriteLine(items)
-            Next
-        End Using
+    Public Sub Borrar(ByVal Id As Integer)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand("DELETE FROM Clientes WHERE ID =" & Id, db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
 #End Region

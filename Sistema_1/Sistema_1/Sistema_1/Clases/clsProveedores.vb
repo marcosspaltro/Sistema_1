@@ -1,35 +1,19 @@
 ﻿Imports System.IO
 Public Class clsProveedores
+
 #Region " Devolver Datos "
     Public Function Datos() As DataTable
         Dim dt As New DataTable()
-        dt.Columns.Add("Id", GetType(Integer))
-        dt.Columns.Add("Nombre", GetType(String))
-
-        If Not File.Exists(Application.StartupPath + "\Proveedores.txt") Then
-            Dim swProv As StreamWriter = New StreamWriter("Proveedores.txt")
-            swProv.Close()
-        End If
-
-        Dim srProv As New StreamReader("Proveedores.txt")
-        Dim vlinea As String = srProv.ReadLine
-
-        While vlinea IsNot Nothing
-
-            dt.Rows.Add(Codigo_Seleccionado(vlinea), Nombre_Seleccionado(vlinea))
-
-            vlinea = srProv.ReadLine
-
-        End While
-        srProv.Close()
-
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Proveedores", db)
+        dat.Fill(dt)
         Return dt
 
     End Function
 
     Public Function Max_Id() As Integer
-        Dim srProv As New StreamReader("Proveedores.txt")
-        Dim vlinea As String = srProv.ReadLine
+        Dim SrProv As New StreamReader("Proveedores.txt")
+        Dim vlinea As String = SrProv.ReadLine
 
         Dim vmax As Integer = 0
 
@@ -40,36 +24,36 @@ Public Class clsProveedores
                     vmax = vindice
                 End If
             End If
-            vlinea = srProv.ReadLine
+            vlinea = SrProv.ReadLine
 
         End While
-        srProv.Close()
+        SrProv.Close()
         Return vmax
     End Function
 
 #End Region
 
 #Region " Editar Datos"
-    Public Sub Agregar()
-
+    Public Sub Agregar(ByVal nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Proveedores (Nombre) VALUES('{nombre_Nuevo}') ", db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
-    Public Sub Editar()
-
+    Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand($"UPDATE Proveedores SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
-    Public Sub Borrar()
-        frmProveedores.lstProveedores.Items.RemoveAt(frmProveedores.lstProveedores.SelectedIndex)
-    End Sub
-    Public Sub nvalista()
-        Using swProv As TextWriter = New StreamWriter("Proveedores.txt")
-
-            For Each items In frmProveedores.lstProveedores.Items
-                swProv.WriteLine(items)
-            Next
-        End Using
+    Public Sub Borrar(ByVal Id As Integer)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand("DELETE FROM Proveedores WHERE ID =" & Id, db)
+        db.Open()
+        dc.ExecuteNonQuery()
     End Sub
 
 #End Region
 End Class
-

@@ -1,11 +1,11 @@
 ﻿Imports System.IO
 
 Public Class frmProductos
-    Dim prod As New clsProductos
+    Private clProd As New clsProductos
 
     Private Sub frmProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim dt As DataTable = prod.Datos
+        Dim dt As DataTable = clProd.Datos
 
         For Each dr As DataRow In dt.Rows
             lstProductos.Items.Add($"{dr.Item(0)}. {dr.Item(1)}")
@@ -19,15 +19,21 @@ Public Class frmProductos
 
     Private Sub cmdAgregar_Click(sender As Object, e As EventArgs) Handles cmdAgregar.Click
         If cmdEditar.Text = "Editar" Then
-            lstProductos.Items.Add((prod.Max_Id + 1).ToString() + ". " + txtProd.Text)
+            clProd.Agregar(txtProd.Text)
             txtProd.Text = ""
-            nvalista()
+            Cargar_LST()
         End If
     End Sub
 
     Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click
-        lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
-        nvalista()
+        If Not cmdEditar.Text = "Editar" Then
+            If lstProductos.SelectedIndex = -1 Then
+                Dim i As Integer = Codigo_Seleccionado(lstProductos.Text)
+                clProd.Borrar(i)
+                lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
+                Cargar_LST()
+            End If
+        End If
     End Sub
 
     Private Sub cmdEditar_Click(sender As Object, e As EventArgs) Handles cmdEditar.Click
@@ -35,9 +41,10 @@ Public Class frmProductos
             cmdEditar.Text = "Editar"
             Dim codid As String
             codid = Codigo_Seleccionado(lstProductos.Text)
+            clProd.Editar(codid, txtProd.Text)
             lstProductos.Items.Insert(lstProductos.SelectedIndex, codid + ". " + txtProd.Text)
             lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
-            nvalista()
+            Cargar_LST()
 
         End If
         If Not lstProductos.SelectedIndex = -1 Then
@@ -48,11 +55,15 @@ Public Class frmProductos
         End If
 
     End Sub
-    Private Sub nvalista()
-        Using swProd As TextWriter = New StreamWriter("Productos.txt")
-            For Each items In lstProductos.Items
-                swProd.WriteLine(items)
+    Private Sub Cargar_LST()
+        Dim dt As DataTable = clProd.Datos()
+
+        With lstProductos
+            .Items.Clear()
+
+            For Each dr As DataRow In dt.Rows
+                .Items.Add(dr.Item("Id") & ". " & dr.Item("Nombre"))
             Next
-        End Using
+        End With
     End Sub
 End Class
