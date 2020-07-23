@@ -60,6 +60,7 @@ Public Class frmProductos
 
         With lstProductos
             .Items.Clear()
+            Application.DoEvents()
 
             For Each dr As DataRow In dt.Rows
                 .Items.Add(dr.Item("Id") & ". " & dr.Item("Nombre"))

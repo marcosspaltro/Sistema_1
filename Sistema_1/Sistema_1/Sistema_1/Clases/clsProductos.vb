@@ -5,7 +5,7 @@ Public Class clsProductos
 
 #Region " Devolver Datos "
     Public Function Datos() As DataTable
-        Dim dt As New DataTable()
+        Dim dt As New DataTable("Datos")
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Productos", db)
         dat.Fill(dt)
@@ -41,6 +41,7 @@ Public Class clsProductos
         Dim dc As New OleDb.OleDbCommand($"INSERT INTO Productos (Nombre) VALUES('{nombre_Nuevo}') ", db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
     End Sub
 
     Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
