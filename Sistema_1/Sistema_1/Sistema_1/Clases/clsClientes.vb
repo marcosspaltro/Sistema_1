@@ -39,6 +39,8 @@ Public Class clsClientes
         Dim dc As New OleDb.OleDbCommand($"INSERT INTO Clientes (Nombre) VALUES('{nombre_Nuevo}') ", db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
 
     Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
@@ -46,6 +48,8 @@ Public Class clsClientes
         Dim dc As New OleDb.OleDbCommand($"UPDATE Clientes SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
 
     Public Sub Borrar(ByVal Id As Integer)
@@ -53,6 +57,8 @@ Public Class clsClientes
         Dim dc As New OleDb.OleDbCommand("DELETE FROM Clientes WHERE ID =" & Id, db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
 
 #End Region

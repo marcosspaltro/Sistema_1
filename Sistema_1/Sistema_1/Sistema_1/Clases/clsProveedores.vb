@@ -39,6 +39,8 @@ Public Class clsProveedores
         Dim dc As New OleDb.OleDbCommand($"INSERT INTO Proveedores (Nombre) VALUES('{nombre_Nuevo}') ", db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
 
     Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
@@ -46,13 +48,18 @@ Public Class clsProveedores
         Dim dc As New OleDb.OleDbCommand($"UPDATE Proveedores SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
+
 
     Public Sub Borrar(ByVal Id As Integer)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim dc As New OleDb.OleDbCommand("DELETE FROM Proveedores WHERE ID =" & Id, db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
 
 #End Region

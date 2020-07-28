@@ -49,6 +49,8 @@ Public Class clsProductos
         Dim dc As New OleDb.OleDbCommand($"UPDATE Productos SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
 
     Public Sub Borrar(ByVal Id As Integer)
@@ -56,6 +58,8 @@ Public Class clsProductos
         Dim dc As New OleDb.OleDbCommand("DELETE FROM Productos WHERE ID =" & Id, db)
         db.Open()
         dc.ExecuteNonQuery()
+        db.Close()
+
     End Sub
 
 #End Region
