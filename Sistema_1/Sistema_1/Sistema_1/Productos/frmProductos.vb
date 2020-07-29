@@ -26,8 +26,8 @@ Public Class frmProductos
     End Sub
 
     Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click
-        If Not cmdEditar.Text = "Editar" Then
-            If lstProductos.SelectedIndex = -1 Then
+        If cmdEditar.Text = "Editar" Then
+            If Not lstProductos.SelectedIndex = -1 Then
                 Dim i As Integer = Codigo_Seleccionado(lstProductos.Text)
                 clProd.Borrar(i)
                 lstProductos.Items.RemoveAt(lstProductos.SelectedIndex)
@@ -67,4 +67,8 @@ Public Class frmProductos
             Next
         End With
     End Sub
+    'copiar carpeta de la grid
+    'agregar referencia
+    'solucion > agregar proy exist > ir a speedgrilla y select proy 
+    'agregar ref > examinar > agregar los 2 "c1"
 End Class

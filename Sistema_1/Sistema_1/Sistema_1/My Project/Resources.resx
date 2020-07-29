@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Cadena_Conexion" xml:space="preserve">
-    <value>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;</value>
+    <value>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;</value>
   </data>
 </root>

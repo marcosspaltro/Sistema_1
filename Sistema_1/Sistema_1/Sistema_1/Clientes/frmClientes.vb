@@ -25,8 +25,8 @@ Public Class frmClientes
     End Sub
 
     Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click
-        If Not cmdEditar.Text = "Editar" Then
-            If lstClientes.SelectedIndex = -1 Then
+        If cmdEditar.Text = "Editar" Then
+            If Not lstClientes.SelectedIndex = -1 Then
                 Dim i As Integer = Codigo_Seleccionado(lstClientes.Text)
                 clCli.Borrar(i)
                 lstClientes.Items.RemoveAt(lstClientes.SelectedIndex)
