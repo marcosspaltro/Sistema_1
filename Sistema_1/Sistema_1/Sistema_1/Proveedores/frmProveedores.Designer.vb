@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmProveedores
     Inherits System.Windows.Forms.Form
 
@@ -22,85 +22,56 @@ Partial Class frmProveedores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.lstProveedores = New System.Windows.Forms.ListBox()
-        Me.cmdEditar = New System.Windows.Forms.Button()
-        Me.cmdAgregar = New System.Windows.Forms.Button()
-        Me.cmdBorrar = New System.Windows.Forms.Button()
-        Me.txtProveedores = New System.Windows.Forms.TextBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProveedores))
+        Me.grdProveedores = New Grilla2.SpeedGrilla()
         Me.SuspendLayout()
         '
-        'lstProveedores
+        'grdProveedores
         '
-        Me.lstProveedores.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.grdProveedores.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.None
+        Me.grdProveedores.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.SingleColumn
+        Me.grdProveedores.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lstProveedores.FormattingEnabled = True
-        Me.lstProveedores.Location = New System.Drawing.Point(12, 12)
-        Me.lstProveedores.Name = "lstProveedores"
-        Me.lstProveedores.Size = New System.Drawing.Size(776, 407)
-        Me.lstProveedores.TabIndex = 0
-        '
-        'cmdEditar
-        '
-        Me.cmdEditar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cmdEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmdEditar.Location = New System.Drawing.Point(236, 425)
-        Me.cmdEditar.Name = "cmdEditar"
-        Me.cmdEditar.Size = New System.Drawing.Size(75, 23)
-        Me.cmdEditar.TabIndex = 1
-        Me.cmdEditar.Text = "Editar"
-        Me.cmdEditar.UseVisualStyleBackColor = True
-        '
-        'cmdAgregar
-        '
-        Me.cmdAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cmdAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmdAgregar.Location = New System.Drawing.Point(317, 425)
-        Me.cmdAgregar.Name = "cmdAgregar"
-        Me.cmdAgregar.Size = New System.Drawing.Size(75, 23)
-        Me.cmdAgregar.TabIndex = 2
-        Me.cmdAgregar.Text = "Agregar"
-        Me.cmdAgregar.UseVisualStyleBackColor = True
-        '
-        'cmdBorrar
-        '
-        Me.cmdBorrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cmdBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmdBorrar.Location = New System.Drawing.Point(398, 425)
-        Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(75, 23)
-        Me.cmdBorrar.TabIndex = 3
-        Me.cmdBorrar.Text = "Borrar"
-        Me.cmdBorrar.UseVisualStyleBackColor = True
-        '
-        'txtProveedores
-        '
-        Me.txtProveedores.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtProveedores.Location = New System.Drawing.Point(12, 427)
-        Me.txtProveedores.Name = "txtProveedores"
-        Me.txtProveedores.Size = New System.Drawing.Size(218, 20)
-        Me.txtProveedores.TabIndex = 4
+        Me.grdProveedores.AutoResize = False
+        Me.grdProveedores.bColor = System.Drawing.SystemColors.Window
+        Me.grdProveedores.bColorSel = System.Drawing.SystemColors.Highlight
+        Me.grdProveedores.bFColor = System.Drawing.SystemColors.WindowText
+        Me.grdProveedores.bFColorSel = System.Drawing.SystemColors.HighlightText
+        Me.grdProveedores.Col = 0
+        Me.grdProveedores.Cols = 10
+        Me.grdProveedores.DataMember = ""
+        Me.grdProveedores.DataSource = Nothing
+        Me.grdProveedores.EnableEdicion = True
+        Me.grdProveedores.Encabezado = ""
+        Me.grdProveedores.fColor = System.Drawing.SystemColors.Control
+        Me.grdProveedores.FixCols = 0
+        Me.grdProveedores.FixRows = 0
+        Me.grdProveedores.FuenteEncabezado = Nothing
+        Me.grdProveedores.FuentePieDePagina = Nothing
+        Me.grdProveedores.KeyActionEnter = C1.Win.C1FlexGrid.KeyActionEnum.None
+        Me.grdProveedores.Location = New System.Drawing.Point(12, 12)
+        Me.grdProveedores.MenuActivado = False
+        Me.grdProveedores.Name = "grdProveedores"
+        Me.grdProveedores.PieDePagina = "" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Page {0} of {1}"
+        Me.grdProveedores.PintarFilaSel = True
+        Me.grdProveedores.Redraw = True
+        Me.grdProveedores.Row = 0
+        Me.grdProveedores.Rows = 50
+        Me.grdProveedores.Size = New System.Drawing.Size(776, 426)
+        Me.grdProveedores.TabIndex = 0
         '
         'frmProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.txtProveedores)
-        Me.Controls.Add(Me.cmdBorrar)
-        Me.Controls.Add(Me.cmdAgregar)
-        Me.Controls.Add(Me.cmdEditar)
-        Me.Controls.Add(Me.lstProveedores)
+        Me.Controls.Add(Me.grdProveedores)
         Me.Name = "frmProveedores"
         Me.Text = "frmProveedores"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents lstProveedores As ListBox
-    Friend WithEvents cmdEditar As Button
-    Friend WithEvents cmdAgregar As Button
-    Friend WithEvents cmdBorrar As Button
-    Friend WithEvents txtProveedores As TextBox
+    Friend WithEvents grdProveedores As Grilla2.SpeedGrilla
 End Class

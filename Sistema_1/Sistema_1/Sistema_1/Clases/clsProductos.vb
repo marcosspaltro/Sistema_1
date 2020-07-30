@@ -14,23 +14,16 @@ Public Class clsProductos
     End Function
 
     Public Function Max_Id() As Integer
-        Dim srProd As New StreamReader("Productos.txt")
-        Dim vlinea As String = srProd.ReadLine
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim cm As New OleDb.OleDbCommand("SELECT MAX(Id) FROM Productos", db)
 
-        Dim vmax As Integer = 0
+        Dim d As Object = Nothing
 
-        While vlinea IsNot Nothing
-            If vlinea.IndexOf(".") > 0 Then
-                Dim vindice As Integer = Codigo_Seleccionado(vlinea)
-                If vmax < vindice Then
-                    vmax = vindice
-                End If
-            End If
-            vlinea = srProd.ReadLine
+        cm.CommandType = CommandType.Text
+        db.Open()
+        d = cm.ExecuteScalar()
 
-        End While
-        srProd.Close()
-        Return vmax
+        Return CInt(d)
     End Function
 
 #End Region

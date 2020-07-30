@@ -12,23 +12,16 @@ Public Class clsClientes
     End Function
 
     Public Function Max_Id() As Integer
-        Dim srCli As New StreamReader("Clientes.txt")
-        Dim vlinea As String = srCli.ReadLine
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim cm As New OleDb.OleDbCommand("SELECT MAX(Id) FROM Clientes", db)
 
-        Dim vmax As Integer = 0
+        Dim d As Object = Nothing
 
-        While vlinea IsNot Nothing
-            If vlinea.IndexOf(".") > 0 Then
-                Dim vindice As Integer = Codigo_Seleccionado(vlinea)
-                If vmax < vindice Then
-                    vmax = vindice
-                End If
-            End If
-            vlinea = srCli.ReadLine
+        cm.CommandType = CommandType.Text
+        db.Open()
+        d = cm.ExecuteScalar()
 
-        End While
-        srCli.Close()
-        Return vmax
+        Return CInt(d)
     End Function
 
 #End Region
