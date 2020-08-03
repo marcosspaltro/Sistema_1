@@ -2,6 +2,9 @@
 Public Class frmClientes
     Private clCli As New clsClientes
     Private Sub frmClientes_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Dim vTeclas() As Integer = {46}
+
+        grdClientes.TeclasManejadas = vTeclas
         Cargar_LST()
     End Sub
 
@@ -29,5 +32,15 @@ Public Class frmClientes
         End If
 
         grdClientes.Texto(f, c) = a
+    End Sub
+    Private Sub grdClientes_KeyUp(sender As Object, e As Short) Handles grdClientes.KeyUp
+        If grdClientes.Texto(, 0) <> 0 Then
+            If MsgBox($"¿Esta seguro de borrar el Cliente {grdClientes.Texto(, 0)}. {grdClientes.Texto(, 1)}?",
+                  MsgBoxStyle.YesNoCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Borrar") = MsgBoxResult.Yes Then
+                'Borrar el registro
+                clCli.Borrar(grdClientes.Texto(, 0))
+                grdClientes.BorrarFila()
+            End If
+        End If
     End Sub
 End Class

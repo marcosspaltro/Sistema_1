@@ -3,6 +3,10 @@
 Public Class frmProductos
     Private clProd As New clsProductos
     Private Sub frmProductos_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Dim vTeclas() As Integer = {46}
+
+        grdProductos.TeclasManejadas = vTeclas
+
         Cargar_LST()
     End Sub
 
@@ -30,5 +34,15 @@ Public Class frmProductos
         End If
 
         grdProductos.Texto(f, c) = a
+    End Sub
+    Private Sub grdProductos_KeyUp(sender As Object, e As Short) Handles grdProductos.KeyUp
+        If grdProductos.Texto(, 0) <> 0 Then
+            If MsgBox($"¿Esta seguro de borrar el producto {grdProductos.Texto(, 0)}. {grdProductos.Texto(, 1)}?",
+                  MsgBoxStyle.YesNoCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Borrar") = MsgBoxResult.Yes Then
+                'Borrar el registro
+                clProd.Borrar(grdProductos.Texto(, 0))
+                grdProductos.BorrarFila()
+            End If
+        End If
     End Sub
 End Class
