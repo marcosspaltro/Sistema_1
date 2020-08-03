@@ -22,8 +22,11 @@ Partial Class frmProveedores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProveedores))
         Me.grdProveedores = New Grilla2.SpeedGrilla()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grdProveedores
@@ -69,9 +72,11 @@ Partial Class frmProveedores
         Me.Controls.Add(Me.grdProveedores)
         Me.Name = "frmProveedores"
         Me.Text = "frmProveedores"
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents grdProveedores As Grilla2.SpeedGrilla
+    Friend WithEvents BindingSource1 As BindingSource
 End Class
