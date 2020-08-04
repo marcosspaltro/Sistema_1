@@ -45,4 +45,7 @@ Public Class frmProductos
             End If
         End If
     End Sub
+    ''q funcione edicion de stock
+    ''frm stock y cls
+    ''diseño opciones de busqueda,y como funcionaría
 End Class
