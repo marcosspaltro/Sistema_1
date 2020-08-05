@@ -25,4 +25,11 @@
         frmProveedores.WindowState = FormWindowState.Minimized
         frmProveedores.WindowState = FormWindowState.Maximized
     End Sub
+
+    Private Sub StockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockToolStripMenuItem.Click
+        frmStock.MdiParent = Me
+        frmStock.Show()
+        frmStock.WindowState = FormWindowState.Minimized
+        frmStock.WindowState = FormWindowState.Maximized
+    End Sub
 End Class

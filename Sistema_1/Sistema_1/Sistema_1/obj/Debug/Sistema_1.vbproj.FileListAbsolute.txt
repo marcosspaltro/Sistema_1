@@ -55,3 +55,4 @@ C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Si
 C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\bin\Debug\es-AR\Grilla2.resources.dll
 C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.frmProveedores.resources
 C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.vbproj.CopyComplete
+C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.frmStock.resources

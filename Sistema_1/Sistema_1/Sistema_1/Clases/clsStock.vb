@@ -1,7 +1,4 @@
-﻿Imports System.IO
-Imports Microsoft.VisualBasic.ApplicationServices
-
-Public Class clsProductos
+﻿Public Class clsStock
 
 #Region " Devolver Datos "
     Public Function Datos(ByVal Optional Id As Integer = 0, ByVal Optional Nombre As String = "") As DataTable
@@ -16,7 +13,7 @@ Public Class clsProductos
         If vFiltro.Length Then vFiltro = " WHERE " & vFiltro
 
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Productos" & vFiltro, db)
+        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM vw_Stock" & vFiltro, db)
 
         Dim dt As New DataTable("Datos")
         dat.Fill(dt)
@@ -26,7 +23,7 @@ Public Class clsProductos
 
     Public Function Max_Id() As Integer
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim cm As New OleDb.OleDbCommand("SELECT MAX(Id) FROM Productos", db)
+        Dim cm As New OleDb.OleDbCommand("SELECT MAX(Id) FROM Stock", db)
 
         Dim d As Object = Nothing
 
@@ -40,9 +37,9 @@ Public Class clsProductos
 #End Region
 
 #Region " Editar Datos"
-    Public Sub Agregar(ByVal nombre_Nuevo As String)
+    Public Sub Agregar(ByVal nombre_Nuevo As Integer)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Productos (Nombre) VALUES('{nombre_Nuevo}') ", db)
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Id_Producto) VALUES('{nombre_Nuevo}') ", db)
         db.Open()
         dc.ExecuteNonQuery()
         db.Close()
@@ -50,7 +47,7 @@ Public Class clsProductos
 
     Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand($"UPDATE Productos SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
+        Dim dc As New OleDb.OleDbCommand($"UPDATE Stock SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
         db.Open()
         dc.ExecuteNonQuery()
         db.Close()
@@ -59,7 +56,7 @@ Public Class clsProductos
 
     Public Sub Borrar(ByVal Id As Integer)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand("DELETE FROM Productos WHERE ID =" & Id, db)
+        Dim dc As New OleDb.OleDbCommand("DELETE FROM Stock WHERE ID =" & Id, db)
         db.Open()
         dc.ExecuteNonQuery()
         db.Close()

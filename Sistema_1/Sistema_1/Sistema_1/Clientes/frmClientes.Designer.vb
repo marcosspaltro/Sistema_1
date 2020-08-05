@@ -24,6 +24,7 @@ Partial Class frmClientes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
         Me.grdClientes = New Grilla2.SpeedGrilla()
+        Me.txtClientes = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'grdClientes
@@ -58,20 +59,31 @@ Partial Class frmClientes
         Me.grdClientes.Redraw = True
         Me.grdClientes.Row = 0
         Me.grdClientes.Rows = 50
-        Me.grdClientes.Size = New System.Drawing.Size(776, 426)
+        Me.grdClientes.Size = New System.Drawing.Size(776, 400)
         Me.grdClientes.TabIndex = 0
+        '
+        'txtClientes
+        '
+        Me.txtClientes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtClientes.Location = New System.Drawing.Point(12, 418)
+        Me.txtClientes.Name = "txtClientes"
+        Me.txtClientes.Size = New System.Drawing.Size(231, 20)
+        Me.txtClientes.TabIndex = 2
         '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.txtClientes)
         Me.Controls.Add(Me.grdClientes)
         Me.Name = "frmClientes"
         Me.Text = "frmClientes"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents grdClientes As Grilla2.SpeedGrilla
+    Friend WithEvents txtClientes As TextBox
 End Class

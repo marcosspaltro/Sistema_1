@@ -10,7 +10,15 @@ Public Class frmProveedores
     End Sub
 
     Private Sub Cargar_LST()
-        Dim dt As DataTable = clProv.Datos()
+        Dim fId As Integer = 0
+        Dim fNombre As String = ""
+
+        If txtProveedores.Text.Length Then
+            fNombre = txtProveedores.Text
+            If IsNumeric(txtProveedores.Text) Then fId = CInt(txtProveedores.Text)
+        End If
+
+        Dim dt As DataTable = clProv.Datos(fId, fNombre)
 
         With grdProveedores
             .MostrarDatos(dt, True)
@@ -35,13 +43,23 @@ Public Class frmProveedores
         grdProveedores.Texto(f, c) = a
     End Sub
     Private Sub grdProveedores_KeyUp(sender As Object, e As Short) Handles grdProveedores.KeyUp
-        If grdProveedores.Texto(, 0) <> 0 Then
-            If MsgBox($"¿Esta seguro de borrar el Proveedor {grdProveedores.Texto(, 0)}. {grdProveedores.Texto(, 1)}?",
-                  MsgBoxStyle.YesNoCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Borrar") = MsgBoxResult.Yes Then
-                'Borrar el registro
-                clProv.Borrar(grdProveedores.Texto(, 0))
-                grdProveedores.BorrarFila()
-            End If
-        End If
+        Select Case e
+            Case 46
+                'Tecla Borrar/Delete
+                If grdProveedores.Texto(, 0) <> 0 Then
+                    If MsgBox($"¿Esta seguro de borrar el Provucto {grdProveedores.Texto(, 0)}. {grdProveedores.Texto(, 1)}?",
+                          MsgBoxStyle.YesNoCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Borrar") = MsgBoxResult.Yes Then
+                        'Borrar el registro
+                        clProv.Borrar(grdProveedores.Texto(, 0))
+                        grdProveedores.BorrarFila()
+                    End If
+                End If
+            Case 32
+                'Barra Espaciadora
+        End Select
+    End Sub
+
+    Private Sub txtProveedores_TextChanged(sender As Object, e As EventArgs) Handles txtProveedores.TextChanged
+        Cargar_LST()
     End Sub
 End Class

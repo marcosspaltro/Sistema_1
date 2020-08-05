@@ -26,6 +26,7 @@ Partial Class frmProveedores
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProveedores))
         Me.grdProveedores = New Grilla2.SpeedGrilla()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.txtProveedores = New System.Windows.Forms.TextBox()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,22 +62,33 @@ Partial Class frmProveedores
         Me.grdProveedores.Redraw = True
         Me.grdProveedores.Row = 0
         Me.grdProveedores.Rows = 50
-        Me.grdProveedores.Size = New System.Drawing.Size(776, 426)
+        Me.grdProveedores.Size = New System.Drawing.Size(776, 400)
         Me.grdProveedores.TabIndex = 0
+        '
+        'txtProveedores
+        '
+        Me.txtProveedores.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtProveedores.Location = New System.Drawing.Point(12, 418)
+        Me.txtProveedores.Name = "txtProveedores"
+        Me.txtProveedores.Size = New System.Drawing.Size(231, 20)
+        Me.txtProveedores.TabIndex = 2
         '
         'frmProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.txtProveedores)
         Me.Controls.Add(Me.grdProveedores)
         Me.Name = "frmProveedores"
         Me.Text = "frmProveedores"
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents grdProveedores As Grilla2.SpeedGrilla
     Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents txtProveedores As TextBox
 End Class

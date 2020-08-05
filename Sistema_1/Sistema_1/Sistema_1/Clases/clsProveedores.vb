@@ -2,11 +2,23 @@
 Public Class clsProveedores
 
 #Region " Devolver Datos "
-    Public Function Datos() As DataTable
-        Dim dt As New DataTable()
+    Public Function Datos(ByVal Optional Id As Integer = 0, ByVal Optional Nombre As String = "") As DataTable
+        Dim vFiltro As String = ""
+
+        If Id <> 0 Then
+            vFiltro = $" Id={Id} OR  Nombre LIKE '%{Id}%'"
+        Else
+            If Nombre.Length Then vFiltro = $" Nombre LIKE '%{Nombre}%'"
+        End If
+
+        If vFiltro.Length Then vFiltro = " WHERE " & vFiltro
+
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Proveedores", db)
+        Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM Proveedores" & vFiltro, db)
+
+        Dim dt As New DataTable("Datos")
         dat.Fill(dt)
+
         Return dt
 
     End Function

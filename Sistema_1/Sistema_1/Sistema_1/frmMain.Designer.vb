@@ -27,12 +27,13 @@ Partial Class frmMain
         Me.mnuProductos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuClientes = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuProveedores = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.StockToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1035, 24)
@@ -64,6 +65,12 @@ Partial Class frmMain
         Me.mnuProveedores.Size = New System.Drawing.Size(180, 22)
         Me.mnuProveedores.Text = "Proveedores"
         '
+        'StockToolStripMenuItem
+        '
+        Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
+        Me.StockToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.StockToolStripMenuItem.Text = "Stock"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -88,4 +95,5 @@ Partial Class frmMain
     Friend WithEvents mnuProductos As ToolStripMenuItem
     Friend WithEvents mnuClientes As ToolStripMenuItem
     Friend WithEvents mnuProveedores As ToolStripMenuItem
+    Friend WithEvents StockToolStripMenuItem As ToolStripMenuItem
 End Class
