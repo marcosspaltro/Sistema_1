@@ -1,11 +1,63 @@
 ﻿Public Class clsStock
+    Public Sub New()
 
+    End Sub
+
+#Region " Editar Datos "
+
+    Public Sub Agregar(ByVal Nombre_Nuevo As String)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Stop
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Nombre) VALUES('{Nombre_Nuevo}')", db)
+
+        db.Open()
+
+        dc.ExecuteNonQuery()
+
+        db.Close()
+    End Sub
+
+    Public Sub Editar(ByVal Id As Integer, ByVal Fecha As Date, Id_Productos As Integer, Cantidad As Integer)
+        If Id <> 0 Then
+            'Solo ejecutar si hay un Id 
+            Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+            Dim dc As New OleDb.OleDbCommand($"UPDATE Stock SET Fecha='{Fecha.ToString("MM/dd/yy")}', Id_Productos={Id_Productos}, Cantidad={Cantidad}
+                                            WHERE ID={Id}", db)
+
+            db.Open()
+
+            dc.ExecuteNonQuery()
+
+            db.Close()
+        End If
+    End Sub
+
+    Public Sub Borrar(ByVal Id As Integer)
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand("DELETE FROM Stock WHERE ID=" & Id, db)
+
+        db.Open()
+
+        dc.ExecuteNonQuery()
+
+        db.Close()
+    End Sub
+
+#End Region
 #Region " Devolver Datos "
-    Public Function Datos(ByVal Optional Id As Integer = 0, ByVal Optional Nombre As String = "") As DataTable
+
+    ''' <summary>
+    ''' Devuelve los datos de la vista vw_Stock
+    ''' </summary>
+    ''' <param name="Id">Id del registro</param>
+    ''' <param name="Id_Producto">Codigo de producto</param>
+    ''' <param name="Nombre">Nombre del producto</param>
+    ''' <returns></returns>
+    Public Function Datos(ByVal Optional Id As Integer = 0, ByVal Optional Fecha As String = "", ByVal Optional Id_Producto As Integer = 0, ByVal Optional Nombre As String = "") As DataTable
         Dim vFiltro As String = ""
 
         If Id <> 0 Then
-            vFiltro = $" Id={Id} OR  Nombre LIKE '%{Id}%'"
+            vFiltro = $" Id={Id} OR Id_Producto={Id_Producto} OR Nombre LIKE '%{Id}%'"
         Else
             If Nombre.Length Then vFiltro = $" Nombre LIKE '%{Nombre}%'"
         End If
@@ -21,6 +73,21 @@
         Return dt
     End Function
 
+    Public Function Nombre_Producto(ByVal Id As Integer) As String
+        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
+        Dim dc As New OleDb.OleDbCommand("SELECT Nombre FROM Productos WHERE Id=" & Id, db)
+
+        db.Open()
+
+        Dim s As Object
+        s = dc.ExecuteScalar()
+
+        If IsNothing(s) Then s = ""
+
+        db.Close()
+        Return s
+    End Function
+
     Public Function Max_Id() As Integer
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim cm As New OleDb.OleDbCommand("SELECT MAX(Id) FROM Stock", db)
@@ -33,35 +100,5 @@
 
         Return CInt(d)
     End Function
-
-#End Region
-
-#Region " Editar Datos"
-    Public Sub Agregar(ByVal nombre_Nuevo As Integer)
-        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Id_Producto) VALUES('{nombre_Nuevo}') ", db)
-        db.Open()
-        dc.ExecuteNonQuery()
-        db.Close()
-    End Sub
-
-    Public Sub Editar(ByVal id As Integer, ByVal Nombre_Nuevo As String)
-        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand($"UPDATE Stock SET Nombre='{Nombre_Nuevo}' WHERE ID={id} ", db)
-        db.Open()
-        dc.ExecuteNonQuery()
-        db.Close()
-
-    End Sub
-
-    Public Sub Borrar(ByVal Id As Integer)
-        Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand("DELETE FROM Stock WHERE ID =" & Id, db)
-        db.Open()
-        dc.ExecuteNonQuery()
-        db.Close()
-
-    End Sub
-
 #End Region
 End Class
