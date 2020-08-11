@@ -54,25 +54,41 @@ Public Class frmStock
                 Case .ColIndex("Cantidad")
                     If .Texto(f, .ColIndex("fecha")).ToString = "" Then
                         .ErrorEnTxt()
-                        .ActivarCelda("fecha")
+                        .ActivarCelda(f, .ColIndex("fecha"))
+                    Else
                         If .Texto(f, .ColIndex("Id_Productos")).ToString = "" Then
                             .ErrorEnTxt()
                             .ActivarCelda("id_Productos")
                         Else
-                            .Texto(f, c) = a
+                            Dim fecha As Date
+                            Dim id As Integer
+                            Dim id_Productos As Integer
+                            Dim cantidad As Integer
                             grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id + 1
+                            .Texto(f, .ColIndex("Fecha")) = fecha
+                            .Texto(f, .ColIndex("id_Productos")) = id_Productos
+                            .Texto(f, .ColIndex("id")) = id
+                            .Texto(f, .ColIndex("cantidad")) = cantidad
+                            If grdStock.EsUltimaF Then
+
+                                clStock.Agregar(id, fecha, id_Productos, cantidad)
+                                grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id + 1
+                            End If
+
                         End If
 
-                        If vId <> 0 Then
-                            'clStock.Editar("j")
-                        Else
-                            'clStock.Agregar("j")
 
-                            'Escribir el Id de la nueva fila en la columna Id
-                            .AgregarFila()
-                        End If
-                        .ActivarCelda(f + 1, .ColIndex("Fecha"))
                     End If
+
+                    If vId <> 0 Then
+                        'clStock.Editar("j")
+                    Else
+                        'clStock.Agregar("j")
+
+                        'Escribir el Id de la nueva fila en la columna Id
+                        .AgregarFila()
+                    End If
+                    .ActivarCelda(f + 1, .ColIndex("Fecha"))
 
             End Select
         End With
