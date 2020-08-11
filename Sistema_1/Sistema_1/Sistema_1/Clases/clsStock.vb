@@ -37,9 +37,9 @@
 #End Region
 
 #Region " Editar Datos"
-    Public Sub Agregar(ByVal nombre_Nuevo As Integer)
+    Public Sub Agregar(ByVal IDProd As Integer)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Id_Producto) VALUES('{nombre_Nuevo}') ", db)
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Id_Productos) VALUES({IDProd}) ", db)
         db.Open()
         dc.ExecuteNonQuery()
         db.Close()
