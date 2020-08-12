@@ -52,27 +52,24 @@ Public Class frmStock
                     End If
 
                 Case .ColIndex("Cantidad")
-                    If .Texto(f, .ColIndex("fecha")).ToString = "" Then
-                        .ErrorEnTxt()
+                    If .Texto(f, .ColIndex("fecha")) < #1/1/1900# Then
                         .ActivarCelda(f, .ColIndex("fecha"))
                     Else
-                        If .Texto(f, .ColIndex("Id_Productos")).ToString = "" Then
-                            .ErrorEnTxt()
+                        If .Texto(f, .ColIndex("Id_Productos")) = "" Then
                             .ActivarCelda("id_Productos")
                         Else
                             Dim fecha As Date
-                            Dim id As Integer
                             Dim id_Productos As Integer
                             Dim cantidad As Integer
-                            grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id + 1
-                            .Texto(f, .ColIndex("Fecha")) = fecha
-                            .Texto(f, .ColIndex("id_Productos")) = id_Productos
-                            .Texto(f, .ColIndex("id")) = id
-                            .Texto(f, .ColIndex("cantidad")) = cantidad
+                            fecha = .Texto(f, .ColIndex("Fecha"))
+                            id_Productos = .Texto(f, .ColIndex("id_Productos"))
+                            cantidad = .Texto(f, .ColIndex("cantidad"))
                             If grdStock.EsUltimaF Then
-
-                                clStock.Agregar(id, fecha, id_Productos, cantidad)
-                                grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id + 1
+                                .Texto(f, c) = a
+                                clStock.Agregar(fecha, id_Productos, cantidad)
+                                grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id
+                            Else
+                                'si edito que pase a la fila de abajo, no la siguiente
                             End If
 
                         End If
@@ -115,5 +112,9 @@ Public Class frmStock
 
     Private Sub txtStock_TextChanged(sender As Object, e As EventArgs) Handles txtStock.TextChanged
         Cargar_LST()
+    End Sub
+
+    Private Sub grdStock_Load(sender As Object, e As EventArgs) Handles grdStock.Load
+
     End Sub
 End Class

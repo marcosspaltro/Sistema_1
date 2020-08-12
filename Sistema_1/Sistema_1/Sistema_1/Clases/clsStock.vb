@@ -5,9 +5,9 @@
 
 #Region " Editar Datos "
 
-    Public Sub Agregar(ByVal Id As Integer, ByVal Fecha As Date, Id_Productos As Integer, Cantidad As Integer)
+    Public Sub Agregar(ByVal Fecha As Date, Id_Productos As Integer, Cantidad As Integer)
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
-        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Fecha, Id_Productos, Cantidad) VALUES('{Fecha.ToString("MM/dd/yy")}', '{Id_Productos}','{Cantidad}') WHERE ID={Id}", db)
+        Dim dc As New OleDb.OleDbCommand($"INSERT INTO Stock (Fecha, Id_Productos, Cantidad) VALUES('{Fecha.ToString("MM/dd/yy")}', '{Id_Productos}','{Cantidad}')", db)
 
         db.Open()
 
