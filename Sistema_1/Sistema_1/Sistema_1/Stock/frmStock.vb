@@ -4,7 +4,6 @@ Public Class frmStock
     Private clStock As New clsStock
     Private Sub frmStock_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim vTeclas() As Integer = {46}
-
         grdStock.TeclasManejadas = vTeclas
 
         Cargar_LST()
@@ -12,17 +11,21 @@ Public Class frmStock
 
     Private Sub Cargar_LST()
         Dim fId As Integer = 0
+        Dim fFecha As String = ""
         Dim fNombre As String = ""
 
         If txtStock.Text.Length Then
             fNombre = txtStock.Text
-            If IsNumeric(txtStock.Text) Then fId = CInt(txtStock.Text)
+            If IsNumeric(txtStock.Text) Then
+                fId = CInt(txtStock.Text)
+            End If
         End If
 
-        Dim dt As DataTable = clStock.Datos(fId, fNombre)
+        Dim dt As DataTable = clStock.Datos(fId, fFecha, fId, fNombre)
 
         With grdStock
             .MostrarDatos(dt, True)
+
             .ColW(0) = 60
             .ColW(1) = 150
             .FixCols = 1
@@ -32,23 +35,72 @@ Public Class frmStock
     Private Sub grdStock_Editado(f As Short, c As Short, a As Object) Handles grdStock.Editado
         Dim vId As Integer = grdStock.Texto(f, grdStock.ColIndex("Id"))
 
-        If grdStock.EsUltimaF Then
-            clStock.Agregar(a)
-            grdStock.Texto(f, grdStock.ColIndex("ID")) = clStock.Max_Id
-            grdStock.AgregarFila()
-            grdStock.ActivarCelda(f + 1, c)
-        Else
-            clStock.Editar(vId, a)
-        End If
+        With grdStock
+            Select Case c
+                Case .ColIndex("Fecha")
+                    .Texto(f, c) = a
+                    .ActivarCelda(f, .ColIndex("Id_Productos"))
 
-        grdStock.Texto(f, c) = a
+                Case .ColIndex("Id_Productos")
+                    Dim vNombre As String = clStock.Nombre_Producto(a)
+                    If vNombre.Length Then
+                        .Texto(f, c) = a
+                        .Texto(f, .ColIndex("Nombre")) = vNombre
+                        .ActivarCelda(f, .ColIndex("Cantidad"))
+                    Else
+                        .ErrorEnTxt()
+                    End If
+
+                Case .ColIndex("Cantidad")
+                    If .Texto(f, .ColIndex("fecha")).ToString = "" Then
+                        .ErrorEnTxt()
+                        .ActivarCelda(f, .ColIndex("fecha"))
+                    Else
+                        If .Texto(f, .ColIndex("Id_Productos")).ToString = "" Then
+                            .ErrorEnTxt()
+                            .ActivarCelda("id_Productos")
+                        Else
+                            Dim fecha As Date
+                            Dim id As Integer
+                            Dim id_Productos As Integer
+                            Dim cantidad As Integer
+                            grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id + 1
+                            .Texto(f, .ColIndex("Fecha")) = fecha
+                            .Texto(f, .ColIndex("id_Productos")) = id_Productos
+                            .Texto(f, .ColIndex("id")) = id
+                            .Texto(f, .ColIndex("cantidad")) = cantidad
+                            If grdStock.EsUltimaF Then
+
+                                clStock.Agregar(id, fecha, id_Productos, cantidad)
+                                grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id + 1
+                            End If
+
+                        End If
+
+
+                    End If
+
+                    If vId <> 0 Then
+                        'clStock.Editar("j")
+                    Else
+                        'clStock.Agregar("j")
+
+                        'Escribir el Id de la nueva fila en la columna Id
+                        .AgregarFila()
+                    End If
+                    .ActivarCelda(f + 1, .ColIndex("Fecha"))
+
+            End Select
+        End With
+
     End Sub
+
     Private Sub grdStock_KeyUp(sender As Object, e As Short) Handles grdStock.KeyUp
         Select Case e
             Case 46
                 'Tecla Borrar/Delete
                 If grdStock.Texto(, 0) <> 0 Then
-                    If MsgBox($"¿Esta seguro de borrar el Stockucto {grdStock.Texto(, 0)}. {grdStock.Texto(, 1)}?",
+                    If MsgBox($"¿Esta seguro de borrar el producto {grdStock.Texto(, 0)}. {grdStock.Texto(, 1)}?",
                           MsgBoxStyle.YesNoCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Critical, "Borrar") = MsgBoxResult.Yes Then
                         'Borrar el registro
                         clStock.Borrar(grdStock.Texto(, 0))
@@ -58,10 +110,10 @@ Public Class frmStock
             Case 32
                 'Barra Espaciadora
         End Select
+
     End Sub
 
     Private Sub txtStock_TextChanged(sender As Object, e As EventArgs) Handles txtStock.TextChanged
         Cargar_LST()
     End Sub
-
 End Class
