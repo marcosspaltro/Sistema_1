@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmMain
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,19 +50,19 @@ Partial Class frmMain
         'mnuProductos
         '
         Me.mnuProductos.Name = "mnuProductos"
-        Me.mnuProductos.Size = New System.Drawing.Size(180, 22)
+        Me.mnuProductos.Size = New System.Drawing.Size(139, 22)
         Me.mnuProductos.Text = "Productos"
         '
         'mnuClientes
         '
         Me.mnuClientes.Name = "mnuClientes"
-        Me.mnuClientes.Size = New System.Drawing.Size(180, 22)
+        Me.mnuClientes.Size = New System.Drawing.Size(139, 22)
         Me.mnuClientes.Text = "Clientes"
         '
         'mnuProveedores
         '
         Me.mnuProveedores.Name = "mnuProveedores"
-        Me.mnuProveedores.Size = New System.Drawing.Size(180, 22)
+        Me.mnuProveedores.Size = New System.Drawing.Size(139, 22)
         Me.mnuProveedores.Text = "Proveedores"
         '
         'StockToolStripMenuItem

@@ -39,6 +39,7 @@ Public Class frmProductos
             grdProductos.ActivarCelda(f + 1, c)
         Else
             clProd.Editar(vId, a)
+            grdProductos.ActivarCelda(f + 1, c)
         End If
 
         grdProductos.Texto(f, c) = a
@@ -62,6 +63,10 @@ Public Class frmProductos
 
     Private Sub txtProductos_TextChanged(sender As Object, e As EventArgs) Handles txtProductos.TextChanged
         Cargar_LST()
+    End Sub
+
+    Private Sub grdProductos_Load(sender As Object, e As EventArgs) Handles grdProductos.Load
+
     End Sub
     ''q funcione edicion de stock
     ''frm stock y cls

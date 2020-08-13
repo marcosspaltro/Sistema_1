@@ -29,64 +29,81 @@ Public Class frmStock
             .ColW(0) = 60
             .ColW(1) = 150
             .FixCols = 1
+            totales()
+        End With
+    End Sub
+    Private Sub Totales()
+        With grdStock
+            Dim vCant As Integer
+            For i As Integer = 1 To .Rows - 2
+                vCant = vCant + .Texto(i, .ColIndex("Cantidad"))
+            Next
+            lblRegistros.Text = "Registros: " & .Rows - 2 & " Cantidad: " & vCant
         End With
     End Sub
 
     Private Sub grdStock_Editado(f As Short, c As Short, a As Object) Handles grdStock.Editado
-        Dim vId As Integer = grdStock.Texto(f, grdStock.ColIndex("Id"))
-
         With grdStock
+            Dim vId As Integer = grdStock.Texto(f, grdStock.ColIndex("Id"))
+            Dim vfecha As Date
+            Dim vid_Productos As Integer
+            Dim vcantidad As Integer
+            vfecha = .Texto(f, .ColIndex("Fecha"))
+            vid_Productos = .Texto(f, .ColIndex("id_Productos"))
+            vcantidad = .Texto(f, .ColIndex("cantidad"))
+
             Select Case c
                 Case .ColIndex("Fecha")
-                    .Texto(f, c) = a
-                    .ActivarCelda(f, .ColIndex("Id_Productos"))
+                    If .EsUltimaF Then
+                        .Texto(f, c) = a
+                        .ActivarCelda(f, .ColIndex("Id_Productos"))
+                    Else
+                        .Texto(f, c) = a
+                        clStock.Editar(vId, a, vid_Productos, vcantidad)
+                        .ActivarCelda(f + 1, c)
+                    End If
 
                 Case .ColIndex("Id_Productos")
                     Dim vNombre As String = clStock.Nombre_Producto(a)
-                    If vNombre.Length Then
-                        .Texto(f, c) = a
-                        .Texto(f, .ColIndex("Nombre")) = vNombre
-                        .ActivarCelda(f, .ColIndex("Cantidad"))
-                    Else
-                        .ErrorEnTxt()
-                    End If
-
-                Case .ColIndex("Cantidad")
-                    If .Texto(f, .ColIndex("fecha")) < #1/1/1900# Then
-                        .ActivarCelda(f, .ColIndex("fecha"))
-                    Else
-                        If .Texto(f, .ColIndex("Id_Productos")) = "" Then
-                            .ActivarCelda("id_Productos")
+                    If .EsUltimaF Then
+                        If vNombre.Length Then
+                            .Texto(f, c) = a
+                            .Texto(f, .ColIndex("Nombre")) = vNombre
+                            .ActivarCelda(f, .ColIndex("Cantidad"))
                         Else
-                            Dim fecha As Date
-                            Dim id_Productos As Integer
-                            Dim cantidad As Integer
-                            fecha = .Texto(f, .ColIndex("Fecha"))
-                            id_Productos = .Texto(f, .ColIndex("id_Productos"))
-                            cantidad = .Texto(f, .ColIndex("cantidad"))
-                            If grdStock.EsUltimaF Then
-                                .Texto(f, c) = a
-                                clStock.Agregar(fecha, id_Productos, cantidad)
-                                grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id
-                            Else
-                                'si edito que pase a la fila de abajo, no la siguiente
-                            End If
-
+                            .ErrorEnTxt()
                         End If
-
-
-                    End If
-
-                    If vId <> 0 Then
-                        'clStock.Editar("j")
                     Else
-                        'clStock.Agregar("j")
-
-                        'Escribir el Id de la nueva fila en la columna Id
-                        .AgregarFila()
+                        If vNombre.Length Then
+                            .Texto(f, c) = a
+                            .Texto(f, .ColIndex("Nombre")) = vNombre
+                            clStock.Editar(vId, vfecha, a, vcantidad)
+                            .ActivarCelda(f + 1, c)
+                        Else
+                            .ErrorEnTxt()
+                        End If
                     End If
-                    .ActivarCelda(f + 1, .ColIndex("Fecha"))
 
+                        Case .ColIndex("Cantidad")
+                    If .EsUltimaF Then
+                        If .Texto(f, .ColIndex("fecha")) < #1/1/1900# Then
+                            .ActivarCelda(f, .ColIndex("fecha"))
+                        Else
+                            If .Texto(f, .ColIndex("Id_Productos")) = 0 Then
+                                .ActivarCelda("id_Productos")
+                            Else
+                                .Texto(f, c) = a
+                                clStock.Agregar(vfecha, vid_Productos, a)
+                                grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id
+                                .AgregarFila()
+                                .ActivarCelda(f + 1, .ColIndex("Fecha"))
+                            End If
+                        End If
+                    Else
+                        .Texto(f, c) = a
+                        clStock.Editar(vId, vfecha, vid_Productos, a)
+                        .ActivarCelda(f + 1, .ColIndex("cantidad"))
+                    End If
             End Select
         End With
 

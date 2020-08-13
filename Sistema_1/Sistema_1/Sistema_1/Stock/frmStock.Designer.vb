@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmStock
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,12 @@ Partial Class frmStock
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStock))
         Me.grdStock = New Grilla2.SpeedGrilla()
         Me.txtStock = New System.Windows.Forms.TextBox()
+        Me.lblRegistros = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'grdStock
@@ -70,11 +71,22 @@ Partial Class frmStock
         Me.txtStock.Size = New System.Drawing.Size(231, 20)
         Me.txtStock.TabIndex = 2
         '
+        'lblRegistros
+        '
+        Me.lblRegistros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblRegistros.AutoSize = True
+        Me.lblRegistros.Location = New System.Drawing.Point(249, 421)
+        Me.lblRegistros.Name = "lblRegistros"
+        Me.lblRegistros.Size = New System.Drawing.Size(17, 13)
+        Me.lblRegistros.TabIndex = 3
+        Me.lblRegistros.Text = "lbl"
+        '
         'frmStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblRegistros)
         Me.Controls.Add(Me.txtStock)
         Me.Controls.Add(Me.grdStock)
         Me.Name = "frmStock"
@@ -86,4 +98,5 @@ Partial Class frmStock
 
     Friend WithEvents grdStock As Grilla2.SpeedGrilla
     Friend WithEvents txtStock As TextBox
+    Friend WithEvents lblRegistros As Label
 End Class
