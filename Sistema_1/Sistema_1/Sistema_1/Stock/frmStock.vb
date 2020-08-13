@@ -11,7 +11,7 @@ Public Class frmStock
 
     Private Sub Cargar_LST()
         Dim fId As Integer = 0
-        Dim fFecha As String = ""
+        Dim fFecha As Date = ""
         Dim fNombre As String = ""
 
         If txtStock.Text.Length Then
@@ -84,25 +84,30 @@ Public Class frmStock
                         End If
                     End If
 
-                        Case .ColIndex("Cantidad")
-                    If .EsUltimaF Then
-                        If .Texto(f, .ColIndex("fecha")) < #1/1/1900# Then
-                            .ActivarCelda(f, .ColIndex("fecha"))
-                        Else
-                            If .Texto(f, .ColIndex("Id_Productos")) = 0 Then
-                                .ActivarCelda("id_Productos")
-                            Else
-                                .Texto(f, c) = a
-                                clStock.Agregar(vfecha, vid_Productos, a)
-                                grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id
-                                .AgregarFila()
-                                .ActivarCelda(f + 1, .ColIndex("Fecha"))
-                            End If
-                        End If
+                Case .ColIndex("Cantidad")
+                    .Texto(f, c) = a
+                    If .Texto(f, c) < 0 Then
+                        .ErrorEnTxt()
                     Else
-                        .Texto(f, c) = a
-                        clStock.Editar(vId, vfecha, vid_Productos, a)
-                        .ActivarCelda(f + 1, .ColIndex("cantidad"))
+                        If .EsUltimaF Then
+                            If .Texto(f, .ColIndex("fecha")) < #1/1/1900# Then
+                                .ActivarCelda(f, .ColIndex("fecha"))
+                            Else
+                                If .Texto(f, .ColIndex("Id_Productos")) = 0 Then
+                                    .ActivarCelda("id_Productos")
+                                Else
+                                    clStock.Agregar(vfecha, vid_Productos, a)
+                                    grdStock.Texto(f, grdStock.ColIndex("Id")) = clStock.Max_Id
+                                    .AgregarFila()
+                                    .ActivarCelda(f + 1, .ColIndex("Fecha"))
+                                    Totales()
+                                End If
+                            End If
+                        Else
+                            clStock.Editar(vId, vfecha, vid_Productos, a)
+                            .ActivarCelda(f + 1, .ColIndex("cantidad"))
+                            Totales()
+                        End If
                     End If
             End Select
         End With

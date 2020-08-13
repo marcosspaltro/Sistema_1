@@ -29,17 +29,21 @@ Public Class frmClientes
 
     Private Sub grdClientes_Editado(f As Short, c As Short, a As Object) Handles grdClientes.Editado
         Dim vId As Integer = grdClientes.Texto(f, grdClientes.ColIndex("Id"))
-
-        If grdClientes.EsUltimaF Then
-            clCli.Agregar(a)
-            grdClientes.Texto(f, grdClientes.ColIndex("Id")) = clCli.Max_Id
-            grdClientes.AgregarFila()
-            grdClientes.ActivarCelda(f + 1, c)
-        Else
-            clCli.Editar(vId, a)
-        End If
-
         grdClientes.Texto(f, c) = a
+        If grdClientes.Texto(f, c) = "" Then
+            grdClientes.ErrorEnTxt()
+        Else
+            If grdClientes.EsUltimaF Then
+                clCli.Agregar(a)
+                grdClientes.Texto(f, grdClientes.ColIndex("Id")) = clCli.Max_Id
+                grdClientes.AgregarFila()
+                grdClientes.ActivarCelda(f + 1, c)
+            Else
+                grdClientes.Texto(f, c) = a
+                clCli.Editar(vId, a)
+                grdClientes.ActivarCelda(f + 1, c)
+            End If
+        End If
     End Sub
     Private Sub grdClientes_KeyUp(sender As Object, e As Short) Handles grdClientes.KeyUp
         Select Case e

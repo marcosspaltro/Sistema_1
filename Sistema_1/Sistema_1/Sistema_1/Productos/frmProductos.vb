@@ -32,17 +32,21 @@ Public Class frmProductos
     Private Sub grdProductos_Editado(f As Short, c As Short, a As Object) Handles grdProductos.Editado
         Dim vId As Integer = grdProductos.Texto(f, grdProductos.ColIndex("Id"))
 
-        If grdProductos.EsUltimaF Then
-            clProd.Agregar(a)
-            grdProductos.Texto(f, grdProductos.ColIndex("Id")) = clProd.Max_Id
-            grdProductos.AgregarFila()
-            grdProductos.ActivarCelda(f + 1, c)
-        Else
-            clProd.Editar(vId, a)
-            grdProductos.ActivarCelda(f + 1, c)
-        End If
-
         grdProductos.Texto(f, c) = a
+        If grdProductos.Texto(f, c) = "" Then
+            grdProductos.ErrorEnTxt()
+        Else
+            If grdProductos.EsUltimaF Then
+                clProd.Agregar(a)
+                grdProductos.Texto(f, grdProductos.ColIndex("Id")) = clProd.Max_Id
+                grdProductos.AgregarFila()
+                grdProductos.ActivarCelda(f + 1, c)
+            Else
+                grdProductos.Texto(f, c) = a
+                clProd.Editar(vId, a)
+                grdProductos.ActivarCelda(f + 1, c)
+            End If
+        End If
     End Sub
     Private Sub grdProductos_KeyUp(sender As Object, e As Short) Handles grdProductos.KeyUp
         Select Case e

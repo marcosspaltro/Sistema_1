@@ -31,16 +31,22 @@ Public Class frmProveedores
     Private Sub grdProveedores_Editado(f As Short, c As Short, a As Object) Handles grdProveedores.Editado
         Dim vId As Integer = grdProveedores.Texto(f, grdProveedores.ColIndex("Id"))
 
-        If grdProveedores.EsUltimaF Then
-            clProv.Agregar(a)
-            grdProveedores.Texto(f, grdProveedores.ColIndex("Id")) = clProv.Max_Id
-            grdProveedores.AgregarFila()
-            grdProveedores.ActivarCelda(f + 1, c)
+        grdProveedores.Texto(f, c) = a
+        If grdProveedores.Texto(f, c) = "" Then
+            grdProveedores.ErrorEnTxt()
         Else
-            clProv.Editar(vId, a)
+            If grdProveedores.EsUltimaF Then
+                clProv.Agregar(a)
+                grdProveedores.Texto(f, grdProveedores.ColIndex("Id")) = clProv.Max_Id
+                grdProveedores.AgregarFila()
+                grdProveedores.ActivarCelda(f + 1, c)
+            Else
+                grdProveedores.Texto(f, c) = a
+                clProv.Editar(vId, a)
+                grdProveedores.ActivarCelda(f + 1, c)
+            End If
         End If
 
-        grdProveedores.Texto(f, c) = a
     End Sub
     Private Sub grdProveedores_KeyUp(sender As Object, e As Short) Handles grdProveedores.KeyUp
         Select Case e
