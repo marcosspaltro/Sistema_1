@@ -49,14 +49,14 @@
     ''' Devuelve los datos de la vista vw_Stock
     ''' </summary>
     ''' <param name="Id">Id del registro</param>
-    ''' <param name="Id_Producto">Codigo de producto</param>
+    ''' <param name="Id_Productos">Codigo de producto</param>
     ''' <param name="Nombre">Nombre del producto</param>
     ''' <returns></returns>
-    Public Function Datos(ByVal Optional Id As Integer = 0, ByVal Optional Fecha As String = "", ByVal Optional Id_Producto As Integer = 0, ByVal Optional Nombre As String = "") As DataTable
+    Public Function Datos(ByVal Optional Id As Integer = 0, ByVal Optional Fecha As String = "", ByVal Optional Id_Productos As Integer = 0, ByVal Optional Nombre As String = "") As DataTable
         Dim vFiltro As String = ""
 
         If Id <> 0 Then
-            vFiltro = $" Id={Id} OR Id_Producto={Id_Producto} OR Nombre LIKE '%{Id}%'"
+            vFiltro = $" Id={Id} OR Id_Productos={Id_Productos} OR Nombre LIKE '%{Id}%'"
         Else
             If Nombre.Length Then vFiltro = $" Nombre LIKE '%{Nombre}%'"
         End If

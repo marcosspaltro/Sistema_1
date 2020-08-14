@@ -61,7 +61,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;.
+        '''  Busca una cadena traducida similar a Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;.
         '''</summary>
         Friend ReadOnly Property Cadena_Conexion() As String
             Get

@@ -11,7 +11,7 @@ Public Class frmStock
 
     Private Sub Cargar_LST()
         Dim fId As Integer = 0
-        Dim fFecha As Date = ""
+        Dim fFecha As String = ""
         Dim fNombre As String = ""
 
         If txtStock.Text.Length Then
