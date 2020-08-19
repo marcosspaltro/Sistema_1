@@ -27,10 +27,11 @@ Partial Class frmStock
         Me.txtStock = New System.Windows.Forms.TextBox()
         Me.lblRegistros = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnFiltro_Fecha = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.SuspendLayout()
@@ -59,7 +60,7 @@ Partial Class frmStock
         Me.grdStock.FuenteEncabezado = Nothing
         Me.grdStock.FuentePieDePagina = Nothing
         Me.grdStock.KeyActionEnter = C1.Win.C1FlexGrid.KeyActionEnum.None
-        Me.grdStock.Location = New System.Drawing.Point(12, 15)
+        Me.grdStock.Location = New System.Drawing.Point(0, 0)
         Me.grdStock.MenuActivado = False
         Me.grdStock.Name = "grdStock"
         Me.grdStock.PieDePagina = "" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Page {0} of {1}"
@@ -67,7 +68,7 @@ Partial Class frmStock
         Me.grdStock.Redraw = True
         Me.grdStock.Row = 0
         Me.grdStock.Rows = 50
-        Me.grdStock.Size = New System.Drawing.Size(470, 416)
+        Me.grdStock.Size = New System.Drawing.Size(594, 453)
         Me.grdStock.TabIndex = 0
         '
         'txtStock
@@ -99,6 +100,7 @@ Partial Class frmStock
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control
+        Me.SplitContainer1.Panel1.Controls.Add(Me.grdStock)
         '
         'SplitContainer1.Panel2
         '
@@ -108,24 +110,9 @@ Partial Class frmStock
         Me.SplitContainer1.Panel2.Controls.Add(Me.MonthCalendar1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtStock)
         Me.SplitContainer1.Size = New System.Drawing.Size(776, 422)
-        Me.SplitContainer1.SplitterDistance = 504
+        Me.SplitContainer1.SplitterDistance = 538
         Me.SplitContainer1.SplitterWidth = 8
         Me.SplitContainer1.TabIndex = 4
-        '
-        'MonthCalendar1
-        '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(6, 9)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 216)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(93, 13)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Buscador general:"
         '
         'btnFiltro_Fecha
         '
@@ -137,16 +124,31 @@ Partial Class frmStock
         Me.btnFiltro_Fecha.Text = "Filtrar por fecha"
         Me.btnFiltro_Fecha.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 216)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(93, 13)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Buscador general:"
+        '
+        'MonthCalendar1
+        '
+        Me.MonthCalendar1.Location = New System.Drawing.Point(6, 9)
+        Me.MonthCalendar1.Name = "MonthCalendar1"
+        Me.MonthCalendar1.TabIndex = 0
+        '
         'frmStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.grdStock)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.lblRegistros)
         Me.Name = "frmStock"
         Me.Text = "frmStock"
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()

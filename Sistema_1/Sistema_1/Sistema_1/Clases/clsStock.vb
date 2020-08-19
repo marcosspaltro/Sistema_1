@@ -61,7 +61,13 @@
             If Nombre.Length Then vFiltro = $" Nombre LIKE '%{Nombre}%'"
         End If
 
-        If vFiltro.Length Then vFiltro = " WHERE " & vFiltro
+        If Fecha.Length Then
+            If vFiltro.Length Then
+                vFiltro = vFiltro & " OR " & Fecha
+            Else
+                vFiltro = Fecha
+            End If
+        End If
 
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM vw_Stock" & vFiltro, db)

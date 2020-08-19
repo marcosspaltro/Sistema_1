@@ -9,9 +9,8 @@ Public Class frmStock
         Cargar_LST()
     End Sub
 
-    Private Sub Cargar_LST()
+    Private Sub Cargar_LST(Optional fFecha As String = "")
         Dim fId As Integer = 0
-        Dim fFecha As String = ""
         Dim fNombre As String = ""
 
         If txtStock.Text.Length Then
@@ -29,7 +28,7 @@ Public Class frmStock
             .ColW(0) = 60
             .ColW(1) = 150
             .FixCols = 1
-            totales()
+            Totales()
         End With
     End Sub
     Private Sub Totales()
