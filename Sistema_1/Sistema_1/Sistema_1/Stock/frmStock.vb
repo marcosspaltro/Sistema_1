@@ -138,4 +138,11 @@ Public Class frmStock
     Private Sub grdStock_Load(sender As Object, e As EventArgs) Handles grdStock.Load
 
     End Sub
+
+    Private Sub btnFiltro_Fecha_Click(sender As Object, e As EventArgs) Handles btnFiltro_Fecha.Click
+        Cargar_LST(uFecha.Devolver_cadena)
+    End Sub
+    Private Sub ucFecha_Cambio_Fecha() Handles uFecha.cambio_fecha
+        Cargar_LST(uFecha.Devolver_cadena)
+    End Sub
 End Class

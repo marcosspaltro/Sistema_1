@@ -57,3 +57,4 @@ C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Si
 C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.vbproj.CopyComplete
 C:\Users\Marcos\OneDrive\Documentos\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.frmStock.resources
 C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.frmStock.resources
+C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.ucFecha.resources

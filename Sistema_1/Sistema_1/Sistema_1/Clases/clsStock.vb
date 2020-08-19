@@ -68,10 +68,9 @@
                 vFiltro = Fecha
             End If
         End If
-
+        If vFiltro.Length Then vFiltro = " WHERE " & vFiltro
         Dim db As New OleDb.OleDbConnection(My.Resources.Cadena_Conexion)
         Dim dat As New OleDb.OleDbDataAdapter("SELECT * FROM vw_Stock" & vFiltro, db)
-
         Dim dt As New DataTable("Datos")
         dat.Fill(dt)
 
