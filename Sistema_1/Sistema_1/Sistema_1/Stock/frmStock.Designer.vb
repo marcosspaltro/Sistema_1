@@ -27,9 +27,9 @@ Partial Class frmStock
         Me.txtStock = New System.Windows.Forms.TextBox()
         Me.lblRegistros = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.uFecha = New Sistema_1.ucFecha()
         Me.btnFiltro_Fecha = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.uFecha = New Sistema_1.ucFecha()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -77,7 +77,7 @@ Partial Class frmStock
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtStock.Location = New System.Drawing.Point(105, 285)
         Me.txtStock.Name = "txtStock"
-        Me.txtStock.Size = New System.Drawing.Size(137, 20)
+        Me.txtStock.Size = New System.Drawing.Size(133, 20)
         Me.txtStock.TabIndex = 2
         '
         'lblRegistros
@@ -116,6 +116,15 @@ Partial Class frmStock
         Me.SplitContainer1.SplitterWidth = 8
         Me.SplitContainer1.TabIndex = 4
         '
+        'uFecha
+        '
+        Me.uFecha.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.uFecha.Location = New System.Drawing.Point(3, 0)
+        Me.uFecha.Name = "uFecha"
+        Me.uFecha.Size = New System.Drawing.Size(260, 240)
+        Me.uFecha.TabIndex = 5
+        '
         'btnFiltro_Fecha
         '
         Me.btnFiltro_Fecha.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -123,7 +132,7 @@ Partial Class frmStock
         Me.btnFiltro_Fecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnFiltro_Fecha.Location = New System.Drawing.Point(14, 249)
         Me.btnFiltro_Fecha.Name = "btnFiltro_Fecha"
-        Me.btnFiltro_Fecha.Size = New System.Drawing.Size(228, 23)
+        Me.btnFiltro_Fecha.Size = New System.Drawing.Size(224, 23)
         Me.btnFiltro_Fecha.TabIndex = 4
         Me.btnFiltro_Fecha.Text = "Filtrar"
         Me.btnFiltro_Fecha.UseVisualStyleBackColor = True
@@ -138,13 +147,6 @@ Partial Class frmStock
         Me.Label1.Size = New System.Drawing.Size(93, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Buscador general:"
-        '
-        'uFecha
-        '
-        Me.uFecha.Location = New System.Drawing.Point(3, 3)
-        Me.uFecha.Name = "uFecha"
-        Me.uFecha.Size = New System.Drawing.Size(253, 240)
-        Me.uFecha.TabIndex = 5
         '
         'frmStock
         '
