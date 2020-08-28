@@ -94,6 +94,12 @@
     <Compile Include="Controles\ucFecha.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controles\ucProductos.Designer.vb">
+      <DependentUpon>ucProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucProductos.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\ucFecha.resx">
       <DependentUpon>ucFecha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ucProductos.resx">
+      <DependentUpon>ucProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>

@@ -142,7 +142,7 @@ Public Class frmStock
     Private Sub btnFiltro_Fecha_Click(sender As Object, e As EventArgs) Handles btnFiltro_Fecha.Click
         Cargar_LST(uFecha.Devolver_cadena)
     End Sub
-    Private Sub ucFecha_Cambio_Fecha()
+    Private Sub ucFecha_Cambio_Fecha() Handles uFecha.Cambio_Fecha
         Cargar_LST(uFecha.Devolver_Cadena)
     End Sub
 End Class
