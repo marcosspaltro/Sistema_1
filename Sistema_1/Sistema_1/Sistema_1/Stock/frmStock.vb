@@ -145,4 +145,8 @@ Public Class frmStock
     Private Sub ucFecha_Cambio_Fecha() Handles uFecha.Cambio_Fecha
         Cargar_LST(uFecha.Devolver_Cadena)
     End Sub
+
+    Private Sub ucProductos_Cambio_Productos() Handles UProductos.Cambio_Productos
+        Cargar_LST(UProductos.Devolver_Cadena)
+    End Sub
 End Class
