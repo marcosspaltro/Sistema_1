@@ -57,7 +57,8 @@ Public Class ucProductos
             Next
         End If
         Return vFiltro
-
+        'buscar por id no por nombre
+        'usar IN en sql
     End Function
 
     Private Sub lstProds_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstProds.SelectedIndexChanged
