@@ -9,7 +9,7 @@ Public Class frmStock
         Cargar_LST()
     End Sub
 
-    Private Sub Cargar_LST(Optional fFecha As String = "")
+    Private Sub Cargar_LST(Optional fFecha As String = "", Optional vprod As String = "")
         Dim fId As Integer = 0
         Dim fNombre As String = ""
 
@@ -148,5 +148,10 @@ Public Class frmStock
 
     Private Sub ucProductos_Cambio_Productos() Handles UProductos.Cambio_Productos
         Cargar_LST(UProductos.Devolver_Cadena)
+    End Sub
+    Private Sub Doble_Filtro() Handles uFecha.Cambio_Fecha, UProductos.Cambio_Productos
+        If uFecha.chFecha.Checked And Not UProductos.lstProds.SelectedIndex = -1 Then
+            Cargar_LST(uFecha.Devolver_Cadena And UProductos.Devolver_Cadena)
+        End If
     End Sub
 End Class

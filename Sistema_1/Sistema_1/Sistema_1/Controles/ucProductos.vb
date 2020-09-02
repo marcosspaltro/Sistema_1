@@ -42,11 +42,19 @@ Public Class ucProductos
     End Sub
     Public Function Devolver_Cadena() As String
         Dim vFiltro As String = ""
+        Dim nombre As String = ""
         If Not lstProds.SelectedIndex = -1 Then
 
-            Dim nombre As String = lstProds.Text.Substring(lstProds.Text.IndexOf(". ") + 2)
-            vFiltro = $" Nombre LIKE '%{nombre}%'"
-            txtprueba.Text = nombre
+            For Each i In lstProds.SelectedItems
+                Dim nvoNombre As String = i.Substring(lstProds.Text.IndexOf(". ") + 2)
+                If nombre = "" Then
+                    nombre = nvoNombre
+                Else
+                    nombre = nombre + $"%' OR Nombre LIKE '%{nvoNombre}"
+                End If
+                vFiltro = $" Nombre LIKE '%{nombre}%'"
+
+            Next
         End If
         Return vFiltro
 

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ucProductos
     Inherits System.Windows.Forms.UserControl
 
     'UserControl reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,10 @@ Partial Class ucProductos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lstProds = New System.Windows.Forms.ListBox()
         Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.txtprueba = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lstProds
@@ -50,18 +49,10 @@ Partial Class ucProductos
         Me.lblTitulo.TabIndex = 5
         Me.lblTitulo.Text = "Productos"
         '
-        'txtprueba
-        '
-        Me.txtprueba.Location = New System.Drawing.Point(69, 411)
-        Me.txtprueba.Name = "txtprueba"
-        Me.txtprueba.Size = New System.Drawing.Size(100, 20)
-        Me.txtprueba.TabIndex = 7
-        '
         'ucProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.txtprueba)
         Me.Controls.Add(Me.lstProds)
         Me.Controls.Add(Me.lblTitulo)
         Me.Name = "ucProductos"
@@ -72,5 +63,4 @@ Partial Class ucProductos
     End Sub
     Friend WithEvents lstProds As ListBox
     Friend WithEvents lblTitulo As Label
-    Friend WithEvents txtprueba As TextBox
 End Class
