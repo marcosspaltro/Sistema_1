@@ -46,13 +46,14 @@ Public Class ucProductos
         If Not lstProds.SelectedIndex = -1 Then
 
             For Each i In lstProds.SelectedItems
-                Dim nvoNombre As String = i.Substring(lstProds.Text.IndexOf(". ") + 2)
+                Dim nvoNombre As String = i.Substring(0, lstProds.Text.IndexOf(". "))
                 If nombre = "" Then
                     nombre = nvoNombre
                 Else
-                    nombre = nombre + $"%' OR Nombre LIKE '%{nvoNombre}"
+                    nombre = nombre + $"%' OR Id_Productos LIKE '%{nvoNombre}"
                 End If
-                vFiltro = $" Nombre LIKE '%{nombre}%'"
+                vFiltro = $" Id_Productos LIKE '%{nombre}%'"
+
 
             Next
         End If

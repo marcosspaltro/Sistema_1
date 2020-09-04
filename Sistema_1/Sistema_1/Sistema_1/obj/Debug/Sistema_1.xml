@@ -24,7 +24,7 @@ Sistema_1
 </member>
 <member name="P:Sistema_1.My.Resources.Resources.Cadena_Conexion">
 <summary>
-  Busca una cadena traducida similar a Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;.
+  Busca una cadena traducida similar a Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marco\Documents\github\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;.
 </summary>
 </member>
 <member name="M:Sistema_1.clsStock.Datos(System.Int32,System.String,System.Int32,System.String)">
@@ -35,6 +35,151 @@ Sistema_1
  <param name="Id_Productos">Codigo de producto</param>
  <param name="Nombre">Nombre del producto</param>
  <returns></returns>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ClientesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ProductosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ProveedoresDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.StockDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.vw_StockDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ClientesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ProductosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ProveedoresRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.StockRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.vw_StockRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ClientesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ProductosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.ProveedoresRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.StockRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSet.vw_StockRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.ClientesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.ProductosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.ProveedoresTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.StockTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.vw_StockTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Sistema_1.dbSistemaDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Sistema_1.dbSistemaDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Sistema_1.dbSistemaDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager.UpdateAll(Sistema_1.dbSistemaDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Sistema_1.dbSistemaDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
 </member>
 <member name="M:Sistema_1.Herramientas.Codigo_Seleccionado(System.String)">
  <summary>

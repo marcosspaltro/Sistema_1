@@ -143,15 +143,23 @@ Public Class frmStock
         Cargar_LST(uFecha.Devolver_cadena)
     End Sub
     Private Sub ucFecha_Cambio_Fecha() Handles uFecha.Cambio_Fecha
-        Cargar_LST(uFecha.Devolver_Cadena)
+        If UProductos.lstProds.SelectedIndex = -1 Then
+            Cargar_LST(uFecha.Devolver_Cadena)
+        End If
     End Sub
 
     Private Sub ucProductos_Cambio_Productos() Handles UProductos.Cambio_Productos
-        Cargar_LST(UProductos.Devolver_Cadena)
+        If Not uFecha.chFecha.Checked Then
+            Cargar_LST(UProductos.Devolver_Cadena)
+        End If
     End Sub
     Private Sub Doble_Filtro() Handles uFecha.Cambio_Fecha, UProductos.Cambio_Productos
         If uFecha.chFecha.Checked And Not UProductos.lstProds.SelectedIndex = -1 Then
-            Cargar_LST(uFecha.Devolver_Cadena And UProductos.Devolver_Cadena)
+            Dim filtrodoble As String = $"{uFecha.Devolver_Cadena} AND {UProductos.Devolver_Cadena}"
+            Cargar_LST(filtrodoble)
+        Else
+            ucFecha_Cambio_Fecha()
+            ucProductos_Cambio_Productos()
         End If
     End Sub
 End Class
