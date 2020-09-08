@@ -87,3 +87,4 @@ C:\Users\marco\Documents\github\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debu
 C:\Users\marco\Documents\github\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.xml
 C:\Users\marco\Documents\github\Sistema_1\Sistema_1\Sistema_1\Sistema_1\obj\Debug\Sistema_1.pdb
 C:\Users\marco\Documents\github\Sistema_1\Sistema_1\Sistema_1\Sistema_1\bin\Debug\dbSistema.accdb
+C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\bin\Debug\dbSistema.accdb

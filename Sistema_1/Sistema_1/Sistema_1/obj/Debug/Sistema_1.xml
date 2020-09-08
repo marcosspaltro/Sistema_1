@@ -24,7 +24,7 @@ Sistema_1
 </member>
 <member name="P:Sistema_1.My.Resources.Resources.Cadena_Conexion">
 <summary>
-  Busca una cadena traducida similar a Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marco\Documents\github\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;.
+  Busca una cadena traducida similar a Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Marcos\Documents\GitHub\sist\Sistema_1\Sistema_1\Sistema_1\Sistema_1\dbSistema.accdb;Persist Security Info=False;.
 </summary>
 </member>
 <member name="M:Sistema_1.clsStock.Datos(System.Int32,System.String,System.Int32,System.String)">

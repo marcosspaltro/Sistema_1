@@ -50,9 +50,9 @@ Public Class ucProductos
                 If nombre = "" Then
                     nombre = nvoNombre
                 Else
-                    nombre = nombre + $"%' OR Id_Productos LIKE '%{nvoNombre}"
+                    nombre = nombre + $" , {nvoNombre}"
                 End If
-                vFiltro = $" Id_Productos LIKE '%{nombre}%'"
+                vFiltro = $" Id_Productos IN ({nombre})"
 
 
             Next
