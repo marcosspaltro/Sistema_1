@@ -106,7 +106,7 @@ Partial Class ucFecha
         Me.TabPage2.Location = New System.Drawing.Point(4, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(282, 197)
+        Me.TabPage2.Size = New System.Drawing.Size(472, 197)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Semana"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -118,7 +118,7 @@ Partial Class ucFecha
         Me.lstSemanas.FormattingEnabled = True
         Me.lstSemanas.Location = New System.Drawing.Point(3, 3)
         Me.lstSemanas.Name = "lstSemanas"
-        Me.lstSemanas.Size = New System.Drawing.Size(276, 191)
+        Me.lstSemanas.Size = New System.Drawing.Size(466, 191)
         Me.lstSemanas.TabIndex = 1
         '
         'TabPage3
@@ -159,7 +159,7 @@ Partial Class ucFecha
         Me.TabPage4.Controls.Add(Me.lstAño)
         Me.TabPage4.Location = New System.Drawing.Point(4, 4)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(282, 197)
+        Me.TabPage4.Size = New System.Drawing.Size(472, 197)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Año"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -171,7 +171,7 @@ Partial Class ucFecha
         Me.lstAño.FormattingEnabled = True
         Me.lstAño.Location = New System.Drawing.Point(0, 0)
         Me.lstAño.Name = "lstAño"
-        Me.lstAño.Size = New System.Drawing.Size(282, 197)
+        Me.lstAño.Size = New System.Drawing.Size(472, 197)
         Me.lstAño.TabIndex = 3
         '
         'TabPage5
@@ -182,7 +182,7 @@ Partial Class ucFecha
         Me.TabPage5.Controls.Add(Me.dtDesde)
         Me.TabPage5.Location = New System.Drawing.Point(4, 4)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(282, 197)
+        Me.TabPage5.Size = New System.Drawing.Size(472, 197)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "D-H"
         Me.TabPage5.UseVisualStyleBackColor = True
